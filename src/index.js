@@ -5,63 +5,114 @@ const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 
 const mons = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 // Challenge 1
+
+/**
+   * Constructor that initializes the date object.
+   * @param {...*} args - Arguments to be passed to the native Date object.
+*/
 class D {
     constructor(...args) {
         this._date = new Date(...args);
     }
 
 // Challenge 2
+
     // returns full year
+    /**
+        * Gets the full year of the date.
+        * @returns {number} of the full year.
+    */
     get year() {
         return this._date.getFullYear()
     }
 
     // returns short year
+    /**
+        * Gets the last two digits of the year.
+        * @returns {string} The short term of the year.
+    */
     get yr(){
         return this._date.getFullYear() % 100
     }
 
     // returns month
+    /**
+        * Gets the full month name of the date.
+        * @returns {string} The full month name.
+    */
     get month() {
         return months[this._date.getMonth()]
     }
 
     // returns short month
+    /**
+        * Gets the abbreviated month name of the date.
+        * @returns {string} The abbreviation of the month name.
+    */
     get mon() {
         return mons[this._date.getMonth()]
     }
 
     // returns day
+    /**
+        * Gets the full day of the week.
+        * @returns {string} The full day name.
+    */
     get day() {
         return days[this._date.getDay()]
     }
 
     // returns short day
+    /**
+        * Gets the abbreviated form of the day of the week.
+        * @returns {string} The abbreviated day name.
+    */
     get dy(){
         return dys[this._date.getDay()]
     }
 
     // returns date
+    /** 
+        * Gets the day of the month
+        *  @returns {number} The Date.
+    */
     get date(){
         return this._date.getDate()
     }
 
     // returns hours
+    /**
+        * Gets the hour of the day.
+        * @returns {number} The Hour.
+   */
     get hours() {
         return this._date.getHours()
     }
 
     // returns minutes
+    /**
+        * Gets the minutes of the hour.
+        * @returns {number} The Minutes.
+    */
     get min() {
         return this._date.getMinutes()
     }
 
     // returns seconds
+    /** 
+        * Get the seconds
+        *  @returns {number} The Seconds.
+    */
     get sec() {
         return this._date.getSeconds()
     }
 
     // Challenge 3
+    /**
+        * Returns the date formatted according to the specified mask
+        * @param {string} [mask='Y M D'] - Output format - Format mask
+        * @returns {string} - Formatted date string
+    */
 
     format(mask = 'Y M D') {
         let result = "";
@@ -114,6 +165,10 @@ class D {
     }
 
     // Challenge 4
+    /**
+        * Describes how long ago or in the future the date is.
+        * @returns {string} Time difference in string representation.
+    */
     when() {
         // Get current date & time
         const currentDate = new Date();
@@ -149,4 +204,6 @@ class D {
             ${diffInSeconds > 0 ? 'from now' : 'ago'}`;
         }
     }
+
+    
 }
